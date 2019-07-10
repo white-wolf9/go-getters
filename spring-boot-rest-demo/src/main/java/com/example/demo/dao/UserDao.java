@@ -35,4 +35,8 @@ public class UserDao {
 		
         return status_response;
 	}
+	
+	public User fetchById(int id) {
+		return entityManager.find(User.class, id);
+	}
 }

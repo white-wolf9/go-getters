@@ -26,6 +26,9 @@ public class UserServices {
         user.setAge(userDTO.getAge());
         user.setEmail(userDTO.getEmail());
         user.setName(userDTO.getName());
+        user.setCountry(userDTO.getCountry());
+        user.setState(userDTO.getState());
+        user.setCity(userDTO.getCity());
 		/*
 		 * try{ BeanUtils.copyProperties(userDTO,user); } catch(Exception e) {
 		 * e.printStackTrace(); }
@@ -35,4 +38,7 @@ public class UserServices {
         return status_response;
 	}
 
+	public User fetchById(int id) {
+		return udao.fetchById(id);
+	}
 }

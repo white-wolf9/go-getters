@@ -4,6 +4,8 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="//geodata.solutions/includes/countrystatecity.js"></script>
 <script>
 $(function() {
 	$("#frm").submit(function(evt) {
@@ -11,7 +13,10 @@ $(function() {
 		var obj = {
 				name : $("#name").val(),
 				age : $("#age").val(),
-				email : $("#email").val()
+				email : $("#email").val(),
+				country : $("#countryId").val(),
+				state : $("#stateId").val(),
+				city : $("#cityId").val()
 		}
 		
 		
@@ -35,11 +40,21 @@ $(function() {
 </head>
 <body>
 <form id="frm">
-Enter name: <input type="text" id="name"/>
-Enter age: <input type="number" id="age"/>
-Enter email: <input type="email" id="email"/>
+Enter name: <input type="text" id="name"/><br/>
+Enter age: <input type="number" id="age"/><br/>
+Enter email: <input type="email" id="email"/><br/>
+Select Country: <select name="country" class="countries" id="countryId">
+    <option value="">Select Country</option>
+</select><br/>
+Select State: <select name="state" class="states" id="stateId">
+    <option value="">Select State</option>
+</select><br/>
+Select City: <select name="city" class="cities" id="cityId">
+    <option value="">Select City</option>
+</select><br/>
 <button type="submit">Register</button>
 </form>
 <div id="result"></div>
+<span><a href="index.html">Click Here</a> to go back to home.</span>
 </body>
 </html>

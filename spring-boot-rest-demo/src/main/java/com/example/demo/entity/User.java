@@ -16,7 +16,31 @@ public class User {
 	private int age;
 	@Column(name="EMAIL")
 	private String email;
+	@Column(name="COUNTRY")
+	private String country;
+	@Column(name="STATE")
+	private String state;
+	@Column(name="CITY")
+	private String city;
 	
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
 	public int getId() {
 		return Id;
 	}
