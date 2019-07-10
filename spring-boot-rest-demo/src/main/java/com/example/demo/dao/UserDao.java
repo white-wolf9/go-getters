@@ -9,10 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.example.demo.entity.User;
 import com.example.demo.responseobjects.Status;
 
+@Component
 public class UserDao {
 	
 	@PersistenceContext

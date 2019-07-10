@@ -1,5 +1,8 @@
 package com.example.demo.responseobjects;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Status {
 
 	private int id;

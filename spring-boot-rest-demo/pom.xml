@@ -17,6 +17,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<oracle.ojdbc.version>12.2.0.1</oracle.ojdbc.version>
+		<start-class>com.example.demo.SpringBootRestDemoApplication</start-class>
 	</properties>
 
 	<dependencies>

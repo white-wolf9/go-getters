@@ -6,7 +6,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>
 $(function() {
-	$("frm").submit(function(evt) {
+	$("#frm").submit(function(evt) {
 		evt.preventDefault();
 		var obj = {
 				name : $("#name").val(),
@@ -14,26 +14,30 @@ $(function() {
 				email : $("#email").val()
 		}
 		
+		
+		
 		$.ajax({
 			url : "/register",
 			method : 'POST',
 			type : 'json',
+			data : JSON.stringify(obj),
+			contentType : 'application/json',
 			success : function(response) {
-				var result_id = response.id;
-				var result_message = response.message;
+				var r1 = $("<h3/>").text(" User No " +response.id);
+				var r2 = $("<h3/>").text(" Message " +response.message);
 				
-				$("#result").html().append(result_id).append(result_message);
+				$("#result").html("<h1> Details of USER </h1>").append(r1).append(r2);
 			}
 		})
-	}
+	})
 })
 </script>
 </head>
 <body>
 <form id="frm">
-Enter name: <input type="text" name="name"/>
-Enter age: <input type="number" name="age"/>
-Enter email: <input type="email" name="email"/>
+Enter name: <input type="text" id="name"/>
+Enter age: <input type="number" id="age"/>
+Enter email: <input type="email" id="email"/>
 <button type="submit">Register</button>
 </form>
 <div id="result"></div>

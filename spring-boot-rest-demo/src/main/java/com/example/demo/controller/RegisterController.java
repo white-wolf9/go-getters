@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,8 +19,9 @@ public class RegisterController {
 	UserServices userServ;
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	   public Status register(UserDTO userDTO) {
+	   public Status register(@RequestBody UserDTO userDTO) {
 		
+		System.out.println(userDTO.getEmail());
 		return userServ.addToDB(userDTO);
 	   }
 }

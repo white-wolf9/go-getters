@@ -6,12 +6,14 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.example.demo.dao.UserDao;
 import com.example.demo.datatransferobject.UserDTO;
 import com.example.demo.entity.User;
 import com.example.demo.responseobjects.Status;
 
+@Component
 public class UserServices {
 	
 	@Autowired
