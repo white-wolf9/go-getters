@@ -8,22 +8,13 @@
 $(function() {
 	$("#frm").submit(function(evt) {
 		evt.preventDefault();
-		var obj = {
-				name : null,
-				age : null,
-				email : $("#email").val(),
-				country : null,
-				state : null,
-				city : null
-		}
+		var email = $("#email").val()
 		
+		var url = "/search?email="+email
 		$.ajax({
-			url : "/search",
-			method : 'POST',
+			url : url,
+			method : 'GET',
 			type : 'json',
-			data : JSON.stringify(obj),
-			contentType : 'application/json',
-			
 			success : function(response) {
 				var r1 = $("<h3/>").text(" User Name " +response.name);
 				var r2 = $("<h3/>").text(" User Age " +response.age);

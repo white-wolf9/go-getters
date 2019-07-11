@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.datatransferobject.UserDTO;
@@ -18,9 +19,10 @@ public class SearchController {
 	@Autowired
 	UserServices userServ;
 	
-	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public UserDTO showDetails(@RequestBody UserDTO userDTO) {
-		User user = userServ.fetchByEmail(userDTO.getEmail());
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public UserDTO showDetails(@RequestParam("email") String email) {
+		User user = userServ.fetchByEmail(email);
+		
 		UserDTO userDTO_response = new UserDTO();
 		userDTO_response.setName(user.getName());
 		userDTO_response.setAge(user.getAge());
