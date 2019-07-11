@@ -38,7 +38,7 @@ public class UserServices {
         return status_response;
 	}
 
-	public User fetchById(int id) {
-		return udao.fetchById(id);
+	public User fetchByEmail(String email) {
+		return udao.fetchByEmail(email);
 	}
 }

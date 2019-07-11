@@ -23,6 +23,11 @@ public class User {
 	@Column(name="CITY")
 	private String city;
 	
+	@Override
+	public String toString() {
+		return "User [Id=" + Id + ", name=" + name + ", age=" + age + ", email=" + email + ", country=" + country
+				+ ", state=" + state + ", city=" + city + "]";
+	}
 	public String getCountry() {
 		return country;
 	}

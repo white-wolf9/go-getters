@@ -5,31 +5,43 @@
 <title>Search User</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>
-$(function( {
-	$("#frm").submit(function(evt){
+$(function() {
+	$("#frm").submit(function(evt) {
 		evt.preventDefault();
-		var id : $("#id").val()
+		var obj = {
+				name : null,
+				age : null,
+				email : $("#email").val(),
+				country : null,
+				state : null,
+				city : null
+		}
 		
 		$.ajax({
 			url : "/search",
 			method : 'POST',
 			type : 'json',
-			data : JSON.stringify(id),
+			data : JSON.stringify(obj),
 			contentType : 'application/json',
+			
 			success : function(response) {
-				var r1 = $("<h3/>").text(" User No " +response.name);
-				var r2 = $("<h3/>").text(" Message " +response.age);
+				var r1 = $("<h3/>").text(" User Name " +response.name);
+				var r2 = $("<h3/>").text(" User Age " +response.age);
+				var r3 = $("<h3/>").text(" User Email " +response.email);
+				var r4 = $("<h3/>").text(" User Country " +response.country);
+				var r5 = $("<h3/>").text(" User State " +response.state);
+				var r6 = $("<h3/>").text(" User City " +response.city);
 				
-				$("#details").html("<h1> Details of USER </h1>").append(r1).append(r2);
+				$("#details").html("<h1> Details of USER </h1>").append(r1).append(r2).append(r3).append(r4).append(r5).append(r6);
 			}
 		})
 	})
-}))
+})
 </script>
 </head>
 <body>
 <form id="frm">
-Enter the id of the user: <input type="text" id="number"/><br/>
+Enter the id of the user: <input type="email" id="email"/><br/>
 <button type="submit">Go for it!</button>
 </form>
 <div id="details"></div>

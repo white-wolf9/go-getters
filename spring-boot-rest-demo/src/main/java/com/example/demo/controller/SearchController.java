@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.datatransferobject.UserDTO;
 import com.example.demo.entity.User;
 import com.example.demo.services.UserServices;
 
@@ -18,7 +19,16 @@ public class SearchController {
 	UserServices userServ;
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public User showDetails(@RequestBody int id) {
-		return userServ.fetchById(id);
+	public UserDTO showDetails(@RequestBody UserDTO userDTO) {
+		User user = userServ.fetchByEmail(userDTO.getEmail());
+		UserDTO userDTO_response = new UserDTO();
+		userDTO_response.setName(user.getName());
+		userDTO_response.setAge(user.getAge());
+		userDTO_response.setEmail(user.getEmail());
+		userDTO_response.setCountry(user.getCountry());
+		userDTO_response.setCity(user.getCity());
+		userDTO_response.setState(user.getState());
+		return userDTO_response;
+				
 	}
 }

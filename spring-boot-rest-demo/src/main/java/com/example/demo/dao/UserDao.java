@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -36,7 +37,9 @@ public class UserDao {
         return status_response;
 	}
 	
-	public User fetchById(int id) {
-		return entityManager.find(User.class, id);
+	public User fetchByEmail(String email) {
+		User user = (User) entityManager.createQuery("select u from User as u where email= :em").setParameter("em", email).getSingleResult();
+		System.out.println(user);
+		return user; 
 	}
 }
